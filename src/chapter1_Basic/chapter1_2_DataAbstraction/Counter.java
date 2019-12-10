@@ -50,9 +50,7 @@ public class Counter implements Comparable<Counter> {
 
     // compare two Counter objects based on their count
     public int compareTo(Counter that) {
-        if      (this.count < that.count) return -1;
-        else if (this.count > that.count) return +1;
-        else                              return  0;
+        return Integer.compare(this.count, that.count);
     }
 
 

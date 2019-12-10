@@ -3,17 +3,23 @@ package chapter1_Basic.chapter1_1_Programming_Model;
 import algs4.StdIn;
 import algs4.StdOut;
 
+/**
+ * @author Ein
+ */
 public class Sattolo {
     
-    private Sattolo() { }
+    private Sattolo() {}
     
-    public static void cycle(Object[] a) {
+    private static void cycle(Object[] a) {
         int n = a.length;
-        for(int i = n; i > 1; i--) {
+        for (int i = n; i > 1; i--) {
             int r = (int)(Math.random() * (i - 1));
             Object swap = a[r];
             a[r] = a[i - 1];
-            a[i - 1] = swap;
+            a[i -1] = swap;
+            
+
+
         }
     }
     
@@ -21,8 +27,8 @@ public class Sattolo {
         String[] a = StdIn.readAllStrings();
         
         Sattolo.cycle(a);
-        
-        for(int i = 0; i < a.length; i++)
-            StdOut.println(a[i]);
+        for (String s : a) {
+            StdOut.println(s);
+        }
     }
 }

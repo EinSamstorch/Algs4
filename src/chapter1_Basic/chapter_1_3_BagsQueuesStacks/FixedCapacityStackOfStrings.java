@@ -24,7 +24,7 @@ public class FixedCapacityStackOfStrings implements Iterable<String> {
     private int N;       // number of items in stack
 
     // create an empty stack with given capacity
-    public FixedCapacityStackOfStrings(int capacity) {
+    private FixedCapacityStackOfStrings(int capacity) {
         a = new String[capacity];
     }
 

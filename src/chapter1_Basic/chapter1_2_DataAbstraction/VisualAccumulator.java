@@ -11,13 +11,13 @@ public class VisualAccumulator {
     private double total;
     private int N;
 
-    public VisualAccumulator(int trials, double max) {
+    VisualAccumulator(int trials, double max) {
         StdDraw.setXscale(0, trials);
         StdDraw.setYscale(0, max);
         StdDraw.setPenRadius(.005);
     }
 
-    public void addDataValue(double val) {
+    void addDataValue(double val) {
         N++;
         total += val;
         StdDraw.setPenColor(StdDraw.DARK_GRAY);
@@ -26,10 +26,11 @@ public class VisualAccumulator {
         StdDraw.point(N, mean());
     }
 
-    public double mean() {
+    private double mean() {
         return total / N;
     }
 
+    @Override
     public String toString() {
         return "Mean (" + N + " values): " + String.format("%8.5f", mean());
     }

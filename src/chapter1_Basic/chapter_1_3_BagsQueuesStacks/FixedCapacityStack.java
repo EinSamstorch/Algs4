@@ -24,7 +24,7 @@ public class FixedCapacityStack<Item> implements Iterable<Item> {
     private int N;       // number of items in stack
 
     // create an empty stack with given capacity
-    public FixedCapacityStack(int capacity) {
+    private FixedCapacityStack(int capacity) {
         a = (Item[]) new Object[capacity];   // no generic array creation
     }
 
@@ -45,7 +45,7 @@ public class FixedCapacityStack<Item> implements Iterable<Item> {
 
     public static void main(String[] args) {
         int max = Integer.parseInt(args[0]);
-        FixedCapacityStack<String> stack = new FixedCapacityStack<String>(max);
+        FixedCapacityStack<String> stack = new FixedCapacityStack<>(max);
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             if (!item.equals("-")) stack.push(item); 

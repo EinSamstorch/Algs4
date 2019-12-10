@@ -25,7 +25,7 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
     private int last  = 0;       // index of next available slot
 
     // cast needed since no generic array creation in Java
-    public ResizingArrayQueue() {
+    private ResizingArrayQueue() {
         q = (Item[]) new Object[2];
     }
 
@@ -43,7 +43,7 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
     }
 
 
-    public void enqueue(Item item) {
+    private void enqueue(Item item) {
         // double size of array if necessary and recopy to front of array
         if (N == q.length) resize(2*q.length);   // double size of array if necessary
         q[last++] = item;                        // add item
@@ -52,7 +52,7 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
     }
 
     // remove the least recently added item 
-    public Item dequeue() {
+    private Item dequeue() {
         if (isEmpty()) throw new RuntimeException("Queue underflow");
         Item item = q[first];
         q[first] = null;                            // to avoid loitering

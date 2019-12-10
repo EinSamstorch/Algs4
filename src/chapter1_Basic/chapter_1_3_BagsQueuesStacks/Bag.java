@@ -1,4 +1,5 @@
-package chapter1_Basic.chapter_1_3_BagsQueuesStacks; /*************************************************************************
+package chapter1_Basic.chapter_1_3_BagsQueuesStacks;
+/*************************************************************************
  *  Compilation:  javac Bag.java
  *  Execution:    java Bag < input.txt
  *
@@ -21,8 +22,13 @@ import java.util.NoSuchElementException;
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  */
 public class Bag<Item> implements Iterable<Item> {
-    private int N;         // number of elements in bag
-    private Node first;    // beginning of bag
+    /**
+     * number of elements in bag
+     */
+    private int N;
+    // beginning of bag
+
+    private Node first;
 
     // helper linked list class
     private class Node {
@@ -33,7 +39,7 @@ public class Bag<Item> implements Iterable<Item> {
    /**
      * Create an empty stack.
      */
-    public Bag() {
+   Bag() {
         first = null;
         N = 0;
     }
@@ -67,6 +73,7 @@ public class Bag<Item> implements Iterable<Item> {
    /**
      * Return an iterator that iterates over the items in the bag.
      */
+    @Override
     public Iterator<Item> iterator()  {
         return new ListIterator();  
     }
@@ -75,11 +82,20 @@ public class Bag<Item> implements Iterable<Item> {
     private class ListIterator implements Iterator<Item> {
         private Node current = first;
 
-        public boolean hasNext()  { return current != null;                     }
-        public void remove()      { throw new UnsupportedOperationException();  }
+        @Override
+        public boolean hasNext(){
+            return current != null;
+        }
+        @Override
+        public void remove(){
+            throw new UnsupportedOperationException();  }
 
-        public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
+
+        @Override
+        public Item next(){
+            if (!hasNext()){
+                throw new NoSuchElementException();
+            }
             Item item = current.item;
             current = current.next; 
             return item;

@@ -15,19 +15,19 @@ public class List<Item> implements Iterable<Item>
         private Node next;
     }
 
-    public List()
+    private List()
     {
         first = null;
         last  = null;
     }
     
-    public List(Item[] a)
+    private List(Item[] a)
     {
         for (Item t : a)
             append(t);
     }
 
-    public List(Iterable<Item> coll)
+    private List(Iterable<Item> coll)
     {
         for (Item t : coll)
             append(t);
@@ -55,7 +55,7 @@ public class List<Item> implements Iterable<Item>
         return last.item;
     }
     
-    public Item removeFirst()
+    private Item removeFirst()
     {
         if (isEmpty()) throw new RuntimeException("List is empty");
         Item item = first.item;
@@ -65,7 +65,7 @@ public class List<Item> implements Iterable<Item>
         return item;
     }
     
-    public void prepend(Item item)
+    private void prepend(Item item)
     {
         Node x = new Node();
         x.item = item;
@@ -74,7 +74,7 @@ public class List<Item> implements Iterable<Item>
         N++;
     }
 
-    public void append(Item item)
+    private void append(Item item)
     {
         Node x = new Node();
         x.item = item;
@@ -87,7 +87,7 @@ public class List<Item> implements Iterable<Item>
     {
         StringBuilder s = new StringBuilder();
         for (Item item : this)
-            s.append(item + " ");
+            s.append(item).append(" ");
         return s.toString();
     } 
  
@@ -115,7 +115,7 @@ public class List<Item> implements Iterable<Item>
     /*****************
      * Exercise 1.3.19
      *****************/
-    public Item removeLast()
+    private Item removeLast()
     {
         if (isEmpty()) throw new RuntimeException("List is empty");
         if (first == last) return removeFirst();
@@ -138,7 +138,7 @@ public class List<Item> implements Iterable<Item>
     /*****************
      * Exercise 1.3.20
      *****************/
-    public Item delete(int k)
+    private Item delete(int k)
     {
         if (k < 1) return null;
         
@@ -204,7 +204,7 @@ public class List<Item> implements Iterable<Item>
     /***************************************
      * Recursive solution to Exercise 1.3.26
      ***************************************/
-    public void removeRec(Item item)
+    private void removeRec(Item item)
     {
         first = remove_Node(first, item);
         setLastAndN();

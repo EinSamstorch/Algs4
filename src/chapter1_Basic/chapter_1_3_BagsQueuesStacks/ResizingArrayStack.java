@@ -26,7 +26,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
     private int N = 0;        // number of elements on stack
 
     // create an empty stack
-    public ResizingArrayStack() {
+    private ResizingArrayStack() {
         a = (Item[]) new Object[2];
     }
 
@@ -39,8 +39,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
     private void resize(int capacity) {
         assert capacity >= N;
         Item[] temp = (Item[]) new Object[capacity];
-        for (int i = 0; i < N; i++)
-            temp[i] = a[i];
+        if (N >= 0) System.arraycopy(a, 0, temp, 0, N);
         a = temp;
     }
 
