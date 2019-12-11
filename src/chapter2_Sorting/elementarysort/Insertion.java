@@ -24,15 +24,19 @@ package chapter2_Sorting.elementarysort;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
 
+/**
+ * @author Ein
+ */
 public class Insertion {
 
     // use natural order and Comparable interface
     public static void sort(Comparable[] a) {
-        int N = a.length;
-        for (int i = 0; i < N; i++) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
             for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
                 exch(a, j, j-1);
             }
@@ -43,8 +47,8 @@ public class Insertion {
 
     // use a custom order and Comparator interface - see Section 3.5
     public static void sort(Object[] a, Comparator c) {
-        int N = a.length;
-        for (int i = 0; i < N; i++) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
             for (int j = i; j > 0 && less(c, a[j], a[j-1]); j--) {
                 exch(a, j, j-1);
             }
@@ -56,13 +60,13 @@ public class Insertion {
     // return a permutation that gives the elements in a[] in ascending order
     // do not change the original array a[]
     public static int[] indexSort(Comparable[] a) {
-        int N = a.length;
-        int[] index = new int[N];
-        for (int i = 0; i < N; i++) {
+        int n = a.length;
+        int[] index = new int[n];
+        for (int i = 0; i < n; i++) {
             index[i] = i;
         }
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = i; j > 0 && less(a[index[j]], a[index[j-1]]); j--) {
                 exch(index, j, j-1);
             }
@@ -93,7 +97,7 @@ public class Insertion {
     }
 
     // exchange a[i] and a[j]  (for indirect sort)
-    private static void exch(int[] a, int i, int j) {
+    private static void exch(@NotNull int[] a, int i, int j) {
         int swap = a[i];
         a[i] = a[j];
         a[j] = swap;
@@ -132,14 +136,14 @@ public class Insertion {
 
    // print array to standard output
     private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+        for (Comparable comparable : a) {
+            StdOut.println(comparable);
         }
     }
 
     // Read strings from standard input, sort them, and print.
     public static void main(String[] args) {
-        String[] a = StdIn.readStrings();
+        String[] a = StdIn.readAllStrings();
         Insertion.sort(a);
         show(a);
     }

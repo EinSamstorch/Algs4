@@ -45,10 +45,10 @@ public class Selection {
 
     // use a custom order and Comparator interface - see Section 3.5
     public static void sort(Object[] a, Comparator c) {
-        int N = a.length;
-        for (int i = 0; i < N; i++) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
             int min = i;
-            for (int j = i+1; j < N; j++) {
+            for (int j = i+1; j < n; j++) {
                 if (less(c, a[j], a[min])) {
                     min = j;
                 }
