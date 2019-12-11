@@ -105,7 +105,7 @@ public class UF {
         UF uf = new UF(n);
 
         // read in a sequence of pairs of integers (each in the range 0 to n-1),
-         // calling find() for each pair: If the members of the pair are not already
+        // calling find() for each pair: If the members of the pair are not already
         // call union() and print the pair.
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();

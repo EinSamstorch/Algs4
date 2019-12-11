@@ -14,11 +14,12 @@ public class QuickFindUF {
     private int count;
 
     // instantiate N isolated components 0 through N-1
-    public QuickFindUF(int N) {
+    private QuickFindUF(int N) {
         count = N;
         id = new int[N];
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < N; i++) {
             id[i] = i;
+        }
     }
 
     // return number of connected components
@@ -32,16 +33,21 @@ public class QuickFindUF {
     }
 
     // are elements p and q in the same component?
-    public boolean connected(int p, int q) {
+    private boolean connected(int p, int q) {
         return id[p] == id[q];
     }
 
     // merge components containing p and q
-    public void union(int p, int q) {
-        if (connected(p, q)) return;
+    private void union(int p, int q) {
+        if (connected(p, q)) {
+            return;
+        }
         int pid = id[p];
-        for (int i = 0; i < id.length; i++)
-            if (id[i] == pid) id[i] = id[q]; 
+        for (int i = 0; i < id.length; i++) {
+            if (id[i] == pid) {
+                id[i] = id[q];
+            }
+        }
         count--;
     }
 
@@ -55,7 +61,9 @@ public class QuickFindUF {
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q)) continue;
+            if (uf.connected(p, q)) {
+                continue;
+            }
             uf.union(p, q);
             StdOut.println(p + " " + q);
         }

@@ -32,8 +32,9 @@ public class WeightedQuickUnionUF {
 
     // Return component identifier for component containing p
     private int find(int p) {
-        while (p != id[p])
+        while (p != id[p]) {
             p = id[p];
+        }
         return p;
     }
 
@@ -47,7 +48,9 @@ public class WeightedQuickUnionUF {
    private void union(int p, int q) {
         int i = find(p);
         int j = find(q);
-        if (i == j) return;
+        if (i == j) {
+            return;
+        }
 
         // make smaller root point to larger one
         if   (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
@@ -66,7 +69,9 @@ public class WeightedQuickUnionUF {
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q)) continue;
+            if (uf.connected(p, q)) {
+                continue;
+            }
             uf.union(p, q);
             StdOut.println(p + " " + q);
         }

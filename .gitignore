@@ -1,6 +1,7 @@
 .idea/
 out/
 data/
+*.txt
 ### Java template
 # Compiled class file
 *.class

@@ -7,14 +7,15 @@ import edu.princeton.cs.algs4.*;
  *
  *  Quick-union algorithm.
  *
- ****************************************************************************/
+ ***************************************************************************
+ * @author Ein*/
 
 public class QuickUnionUF {
     private int[] id;    // id[i] = parent of i
     private int count;   // number of components
 
     // instantiate N isolated components 0 through N-1
-    public QuickUnionUF(int N) {
+    private QuickUnionUF(int N) {
         id = new int[N];
         count = N;
         for (int i = 0; i < N; i++) {
@@ -27,23 +28,29 @@ public class QuickUnionUF {
         return count;
     }
 
-    // return root of component corresponding to element p
-    public int find(int p) {
-        while (p != id[p])
+    /**
+     * @param p
+     * @return root of component corresponding to element p
+     */
+    private int find(int p) {
+        while (p != id[p]) {
             p = id[p];
+        }
         return p;
     }
 
     // are elements p and q in the same component?
-    public boolean connected(int p, int q) {
+    private boolean connected(int p, int q) {
         return find(p) == find(q);
     }
 
     // merge components containing p and q
-    public void union(int p, int q) {
+    private void union(int p, int q) {
         int i = find(p);
         int j = find(q);
-        if (i == j) return;
+        if (i == j) {
+            return;
+        }
         id[i] = j; 
         count--;
     }
@@ -58,7 +65,9 @@ public class QuickUnionUF {
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q)) continue;
+            if (uf.connected(p, q)) {
+                continue;
+            }
             uf.union(p, q);
             StdOut.println(p + " " + q);
         }
