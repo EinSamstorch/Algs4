@@ -24,7 +24,6 @@ package chapter2_Sorting.elementarysort;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
 
@@ -97,7 +96,7 @@ public class Insertion {
     }
 
     // exchange a[i] and a[j]  (for indirect sort)
-    private static void exch(@NotNull int[] a, int i, int j) {
+    private static void exch( int[] a, int i, int j) {
         int swap = a[i];
         a[i] = a[j];
         a[j] = swap;

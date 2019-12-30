@@ -1,6 +1,7 @@
 package chapter2_Sorting.mergesort;
 
 import algs4.StdOut;
+import edu.princeton.cs.algs4.StdIn;
 
 /**
  * @author huang
@@ -29,7 +30,7 @@ public class Merge {
         }
     }
     
-    public static void merge(Comparable[] a, int lo, int mid, int hi) {
+    private static void merge(Comparable[] a, int lo, int mid, int hi) {
         // 将 a[lo..mid] 和 a[mid+1..hi] 归并
         int i = lo, j = mid + 1;
 
@@ -67,7 +68,9 @@ public class Merge {
 
     private static void show(Comparable[] a) {
         // 在单行中打印数组
-        for (Comparable comparable : a) StdOut.print(comparable + " ");
+        for (Comparable comparable : a) {
+            StdOut.print(comparable + " ");
+        }
         StdOut.println();
     }
 
@@ -79,5 +82,11 @@ public class Merge {
             }
         }
         return true;
+    }
+    // Read strings from standard input, sort them, and print.
+    public static void main(String[] args) {
+        String[] a = StdIn.readStrings();
+        sort(a);
+        show(a);
     }
 }

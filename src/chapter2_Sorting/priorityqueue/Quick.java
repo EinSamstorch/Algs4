@@ -29,16 +29,8 @@ public class Quick {
         Comparable v = a[lo];    // 切分元素
         while(true) {
             // 扫描左右，检查扫描是否结束并交换元素
-            while(less(a[++i], v)) {
-                if(i == hi) {
-                    break;
-                }
-            }
-            while(less(v, a[--j])) {
-                if(j == lo) {
-                    break;
-                }
-            }
+            while(less(a[++i], v)) { }
+            while (less(v, a[--j])) { }
             if(i >= j) {
                 break;
             }
